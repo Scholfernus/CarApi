@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<CarModel, Long> {
     List<CarModel> findByColor(String color);
+
     @Query("SELECT c FROM CarModel c WHERE c.color = :color")
     List<CarModel> listCarsByColor(@Param("color") String color);
 }
