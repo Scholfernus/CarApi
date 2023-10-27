@@ -47,7 +47,7 @@ public class CarService {
     }
 
     public CarDto updateCarColor(Long id, CarDto carDto) {
-        CarModel carModel = carRepository.findById(id).orElseThrow(()-> new CarNotFoundException("Car not found"));
+        CarModel carModel = carRepository.findById(id).orElseThrow(() -> new CarNotFoundException("Car not found"));
         carModel.setColor(carDto.getColor());
         carModel = carRepository.save(carModel);
         return CarMapper.toCarDto(carModel);
